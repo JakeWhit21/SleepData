@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+string file = "data.txt";
 // ask for input
 Console.WriteLine("Enter 1 to create data file.");
 Console.WriteLine("Enter 2 to parse data.");
@@ -45,7 +46,25 @@ if (resp == "1")
 }
 else if (resp == "2")
 {
-    // TODO: parse data file
+    if (File.Exists(file))
+        {
+            // read data from file
+            StreamReader sr = new StreamReader(file);
+            while (!sr.EndOfStream)
+            {
+                string line = sr.ReadLine();
+                //convert string to array
+                string[] dateOfSleep = line.Split(',');
+                string[] daysOfSleep = line.Split('|');
+                Console.WriteLine("Date: {0}", dateOfSleep[0]);
+                
+            }
+            sr.Close();
+        }
+        else
+        {
+            Console.WriteLine("File does not exist");
+        }
 
 }
 
