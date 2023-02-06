@@ -53,10 +53,20 @@ else if (resp == "2")
             while (!sr.EndOfStream)
             {
                 string line = sr.ReadLine();
-                //convert string to array
-                string[] dateOfSleep = line.Split(',');
+
+                //grab individual date
+                string[] dateValues = line.Split(',');
+                //convert string date to parsed date
+                DateTime parsedDate = DateTime.Parse(dateValues[0]);
+
+                //split each day
                 string[] daysOfSleep = line.Split('|');
-                Console.WriteLine("Date: {0}", dateOfSleep[0]); 
+                
+                //write the week
+                Console.WriteLine($"Week of {parsedDate:MMM}, {parsedDate:dd}, {parsedDate:yyyy}");
+
+                
+                
                 
             }
             sr.Close();
