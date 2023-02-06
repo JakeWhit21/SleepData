@@ -60,13 +60,15 @@ else if (resp == "2")
                 DateTime parsedDate = DateTime.Parse(dateValues[0]);
 
                 //split each day
-                string[] daysOfSleep = line.Split('|');
+                string[] daysOfSleep = line.Split('|', ',');
                 
                 //write the week
                 Console.WriteLine($"Week of {parsedDate:MMM}, {parsedDate:dd}, {parsedDate:yyyy}");
 
-                
-                
+                //write each day
+                Console.WriteLine("{0,3}{1,3}{2,3}{3,3}{4,3}{5,3}{6,3}", "Su", "Mo", "Tu", "We", "Th", "Fr", "Sa");
+                Console.WriteLine("{0,3}{1,3}{2,3}{3,3}{4,3}{5,3}{6,3}", "--", "--", "--", "--", "--", "--", "--");
+                Console.WriteLine("{0,3}{1,3}{2,3}{3,3}{4,3}{5,3}{6,3}", daysOfSleep[1], daysOfSleep[2], daysOfSleep[3], daysOfSleep[4], daysOfSleep[5], daysOfSleep[6], daysOfSleep[7]);
                 
             }
             sr.Close();
