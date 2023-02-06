@@ -56,7 +56,7 @@ else if (resp == "2")
                 //convert string to array
                 string[] dateOfSleep = line.Split(',');
                 string[] daysOfSleep = line.Split('|');
-                Console.WriteLine("Date: {0}", dateOfSleep[0]);
+                Console.WriteLine("Date: {0}", dateOfSleep[0]); 
                 
             }
             sr.Close();
